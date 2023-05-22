@@ -1,4 +1,4 @@
-# Qwik FAvDevs ⚡️
+# Qwik FavDevs ⚡️
 
 Basic application used by Qwik youtube videos.
 
