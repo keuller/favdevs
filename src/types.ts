@@ -17,3 +17,11 @@ export type Developer = {
     slug: string;
     avatar: string;
 }
+
+export type Repositorio = {
+    id: number,
+    name: string;
+    description: string;
+    url: string;
+    language: string;
+}
