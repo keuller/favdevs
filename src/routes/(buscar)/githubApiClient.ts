@@ -16,6 +16,7 @@ export async function buscarDadosUsuarioGithub(slug: string): Promise<GithubUser
     return {
         id: user.id,
         name: user.name,
+        login: user.login,
         email: user.email,
         bio: user.bio,
         avatar: user.avatar_url,

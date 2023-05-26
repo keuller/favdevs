@@ -1,12 +1,29 @@
-import { component$ } from '@builder.io/qwik';
+import { $, component$, useSignal } from '@builder.io/qwik';
+import { server$ } from '@builder.io/qwik-city';
+import { favoritarDesenvolvedor } from '~/lib/pbClient';
 import type { GithubUser } from '~/types';
+
+export const favoritar = server$(favoritarDesenvolvedor);
 
 export interface UsuarioCardProps {
     user: GithubUser | undefined
 }
 
 export default component$<UsuarioCardProps>(({ user }) => {
+    const favoritado = useSignal<boolean>(false);
+    const message = useSignal<string>('');
+
     if (!user) return <></>;
+
+    const favoritarClick = $(async () => {
+        const { name, avatar, login } = user;
+        const resp = await favoritar({ name, avatar, login });
+        
+        if (resp.oid) {
+            favoritado.value = true;
+            message.value = resp.message;
+        }
+    });
 
     return (
         <div class="w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -43,9 +60,19 @@ export default component$<UsuarioCardProps>(({ user }) => {
                 <h1 class="px-2 text-sm">{user?.email}</h1>
             </div>
 
-            <div class="flex justify-end mt-4">
-                <a href="#" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabIndex={0} role="link">Favoritar</a>
-            </div>
+            {favoritado.value && (<span class="flex items-center justify-center text-base text-green-700 bg-green-200 border rounded-lg py-2 mt-4">
+                {message.value}
+            </span>)}
+
+            {!favoritado.value && (<div class="flex justify-end mt-4">
+                <a href="#" class="text-lg font-medium text-blue-600 dark:text-blue-300" 
+                    tabIndex={0} 
+                    role="link"
+                    onClick$={favoritarClick}>
+                    Favoritar
+                </a>
+            </div>)}
+
         </div>
     )
 });
