@@ -1,7 +1,7 @@
 import PocketBase from 'pocketbase';
 import { Developer, FavoritarUser } from '~/types';
 
-const pb = new PocketBase('http://127.0.0.1:9000');
+export const pb = new PocketBase('http://127.0.0.1:9000');
 
 export function favoritarDesenvolvedor(data: FavoritarUser) {
     return pb.collection('devs').create({
