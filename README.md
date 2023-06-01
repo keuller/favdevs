@@ -4,25 +4,14 @@ Basic application used by Qwik youtube videos.
 
 ---
 
-## Project Structure
+Videos:
 
-Inside your project, you'll see the following directory structure:
-
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
-
-- `src/routes`: Provides the directory based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.builder.io/qwikcity/routing/overview/) for more info.
-
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+- [Qwik Concepts](https://youtu.be/5VxENqLUtBA)
+- [Setup do Projeto](https://youtu.be/-QXzk65y4uI)
+- [Busca de Usuários](https://youtu.be/8Bd-FkvmkXA)
+- [Adicionar Usuários](https://youtu.be/AGZ8Kt_G6ZQ)
+- [Listar Repositórios](https://youtu.be/xF8q1_Bl3X4)
+- [Manipular Formulário](https://youtu.be/Jl5J7EbuUYA)
 
 ## Add Integrations and deployment
 
@@ -40,13 +29,6 @@ pnpm dev # or `yarn dev`
 
 > Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
 
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server.
-
-```shell
-pnpm preview # or `yarn preview`
-```
 
 ## Production
 
