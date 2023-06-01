@@ -37,3 +37,7 @@ export function delay(ms: number): Promise<void> {
         setTimeout(() => resolve(), ms);
     });
 }
+
+export async function removerDesenvolvedor(id: string): Promise<boolean> {
+    return await pb.collection('devs').delete(id);
+}
